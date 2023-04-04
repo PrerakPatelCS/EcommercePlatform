@@ -1,0 +1,16 @@
+[
+  {
+	"name": "Polka Dot Dress",
+	"description": "This is a Dress",
+	"price": 9.99,
+	"imageUrl": "https://im.uniqlo.com/global-cms/spa/res2d7d43ae7ec1620a7c796e84c4eba552fr.jpg",
+	"category": "Dress"	
+  },
+  {
+	"name": "Dress",
+	"description": "This is a Dress",
+	"price": 9.99,
+	"imageUrl": "https://im.uniqlo.com/global-cms/spa/res2d7d43ae7ec1620a7c796e84c4eba552fr.jpg",
+	"category": "Dress"	
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+	"userId": "6428de6a8fec9fdce4ee4d41",
+	"apparelIds": [{
+		"apparelId": "6428e6028fec9fdce4ee4d49",
+		"quantity": 2
+	}],
+	"subtotal": 19.98,
+	"total": 21.30,
+	"dateCreated": "2022-10-04T14:32:21.000Z"	
+  }
+]
