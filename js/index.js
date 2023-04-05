@@ -12,7 +12,7 @@ $(document).ready(function(){
     */
     var apparelData = [];
     $.ajax({
-        url: 'http://localhost:8080/api/apparel/all',
+        url: 'http://10.0.0.159:8080/api/apparel/all',
         type: 'GET',
         success: function(data) {
             console.log(data);
