@@ -35,7 +35,7 @@ $(document).ready(function() {
         console.log(formDataJSON);
         // Send POST request to REST API
         $.ajax({
-            url: "http://10.0.0.159:3000/api/apparel",
+            url: "https://ecommerce-platform-v1-bi2pkswgsq-uk.a.run.app/api/apparel",
             type: "POST",
             data: formDataJSON,
             contentType: "application/json; charset=utf-8",
