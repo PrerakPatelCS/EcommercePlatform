@@ -1,0 +1,40 @@
+.list-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 100px;
+    height: calc(100vh - 56px - 200px);
+    padding: 5rem;
+}
+
+
+.list{
+    overflow-y: auto;
+}
+
+
+.list-horizontal{
+    justify-content: left;
+    border: 1px solid black;
+}
+
+.list-horizontal-item{
+    width:100%;
+}
+
+
+.list-group img{
+    height: 3rem;
+    width: 4rem;
+}
+
+.loading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
