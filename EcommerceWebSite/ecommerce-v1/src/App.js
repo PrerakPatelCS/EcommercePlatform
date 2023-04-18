@@ -30,18 +30,16 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      <BrowserRouter basename="/EcommercePlatform">
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route path="/" element={<Home apparel={apparel} />} />
-          </Route>
-          <Route path="/form" element={<Form />} />
-          <Route path="/cart" element={<Cart apparel={apparel} />} />
-          <Route path="/orderHistory" element={<OrderHistory apparel={apparel} />} />
-          <Route path="/dev" element={<Dev />} />
+      <Routes>
+        <Route path="/EcommercePlatform/" element={<Layout />}>
+          <Route path="/EcommercePlatform/" element={<Home apparel={apparel} />} />
+        </Route>
+        <Route path="/EcommercePlatform/form" element={<Form />} />
+        <Route path="/EcommercePlatform/cart" element={<Cart apparel={apparel} />} />
+        <Route path="/EcommercePlatform/orderHistory" element={<OrderHistory apparel={apparel} />} />
+        <Route path="/EcommercePlatform/dev" element={<Dev />} />
 
-        </Routes>
-      </BrowserRouter>
+      </Routes>
     </div>
   );
 }
