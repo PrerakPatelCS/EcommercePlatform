@@ -2,7 +2,7 @@ import './App.css';
 import api from './api/axiosConfig';
 import {useState, useEffect} from 'react';
 import Layout from './components/Layout';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/home/Home';
 import Header from './components/header/Header';
 import Cart from './components/cart/Cart';
@@ -30,14 +30,15 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
+
       <Routes>
-        <Route path="/EcommercePlatform/" element={<Layout />}>
-          <Route path="/EcommercePlatform/" element={<Home apparel={apparel} />} />
+        <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Home apparel={apparel} />} />
         </Route>
-        <Route path="/EcommercePlatform/form" element={<Form />} />
-        <Route path="/EcommercePlatform/cart" element={<Cart apparel={apparel} />} />
-        <Route path="/EcommercePlatform/orderHistory" element={<OrderHistory apparel={apparel} />} />
-        <Route path="/EcommercePlatform/dev" element={<Dev />} />
+        <Route path="/form" element={<Form />} />
+        <Route path="/cart" element={<Cart apparel={apparel} />} />
+        <Route path="/orderHistory" element={<OrderHistory apparel={apparel} />} />
+        <Route path="/dev" element={<Dev />} />
 
       </Routes>
     </div>
