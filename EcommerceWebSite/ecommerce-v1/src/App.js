@@ -27,6 +27,10 @@ function App() {
     getApparel();
   }, [])
 
+  document.title = "Ecommerce Platform";
+
+
+
   return (
     <div className="App">
       <Header></Header>

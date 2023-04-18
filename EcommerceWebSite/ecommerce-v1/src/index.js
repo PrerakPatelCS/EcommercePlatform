@@ -15,3 +15,10 @@ root.render(
     </HashRouter>
   </React.StrictMode>
 );
+/**
+ * <link rel="icon">
+      <FontAwesomeIcon icon = {faStore} />
+    </link> 
+            <link rel="icon" href="path/to/favicon.ico" />
+
+ */
