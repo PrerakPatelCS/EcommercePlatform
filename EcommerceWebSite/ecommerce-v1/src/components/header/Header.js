@@ -11,14 +11,14 @@ const Header = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
-            <Navbar.Brand href="/EcommercePlatform/" style={{"color":'white'}}>
+            <Navbar.Brand as={NavLink} to="/" style={{"color":'white'}}>
                 <FontAwesomeIcon icon = {faTags} /> Shop
             </Navbar.Brand>
-            <Button href="/EcommercePlatform/form" variant="outline-info" className="me-2 me-auto">Login</Button>
-            <Navbar.Brand href="/EcommercePlatform/cart" style={{"color":'white'}}>
-                <FontAwesomeIcon icon = {faTags} /> Cart
+            <Button as={NavLink} to="/form" variant="outline-info" className="me-2 me-auto">Login</Button>
+            <Navbar.Brand as={NavLink} to="/cart" style={{"color":'white'}}>
+                <FontAwesomeIcon icon = {faShoppingCart} /> Cart
             </Navbar.Brand>
-            <NavLink className="nav-link" to="/EcommercePlatform/orderHistory">History</NavLink>
+            <NavLink className="nav-link" to="/orderHistory">History</NavLink>
         </Container>
     </Navbar>
   )
