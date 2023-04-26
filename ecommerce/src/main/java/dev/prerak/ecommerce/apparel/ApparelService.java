@@ -1,6 +1,5 @@
 package dev.prerak.ecommerce.apparel;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +15,7 @@ public class ApparelService {
         return apparelRepository.findAll();
     }
 
-    public Optional<Apparel> singleApparel(String name){
+    public Optional<Apparel> getApparel(String name){
         return apparelRepository.findApparelByName(name);
     }
 

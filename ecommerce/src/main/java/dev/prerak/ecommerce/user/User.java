@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.util.List;
 
@@ -20,6 +21,17 @@ public class User {
     private ObjectId id;
     private String username;
     private String password;
+    private String role;
+    @DocumentReference
     private Cart cart;
-    private List<OrderHistory> orderHistory;
+    @DocumentReference
+    private OrderHistory orderHistory;
+
+    public User(String username, String password, String role, Cart cart, OrderHistory orderHistory) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.cart = cart;
+        this.orderHistory = orderHistory;
+    }
 }

@@ -11,12 +11,13 @@ import Dev from './components/dev/Dev';
 import Form from './components/login/Form';
 
 function App() {
-  const [apparel, setApparel] = useState();
+  const [apparel, setApparel] = useState([]);
 
   const getApparel = async () =>{
     try{
       const response = await api.get("api/apparel/all");
       setApparel(response.data);
+
     }
     catch(err){
       console.log(err);
@@ -42,7 +43,7 @@ function App() {
         <Route path="/form" element={<Form />} />
         <Route path="/cart" element={<Cart apparel={apparel} />} />
         <Route path="/orderHistory" element={<OrderHistory apparel={apparel} />} />
-        <Route path="/dev" element={<Dev />} />
+        <Route path="/dev" element={<Dev apparel={apparel} getApparel={getApparel} />} />
 
       </Routes>
     </div>

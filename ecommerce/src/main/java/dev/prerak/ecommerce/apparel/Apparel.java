@@ -16,6 +16,9 @@ public class Apparel {
     private ObjectId id;
     private String name;
     private String description;
+    private double price;
+    private String imageUrl;
+    private String category;
 
     public Apparel(String name, String description, double price, String imageUrl, String category) {
         this.name = name;
@@ -25,7 +28,5 @@ public class Apparel {
         this.category = category;
     }
 
-    private double price;
-    private String imageUrl;
-    private String category;
+
 }

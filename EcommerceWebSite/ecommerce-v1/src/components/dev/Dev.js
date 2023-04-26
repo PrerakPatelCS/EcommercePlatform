@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import api from '../../api/axiosConfig';
 
-function Dev () {
+
+function Dev ({apparel, getApparel}) {
   const [isReady, setIsReady] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -30,11 +32,29 @@ function Dev () {
     
   }
 
+
+  const postApparel = async (jsonFormData) =>{
+    try{
+      const response = await api.post("api/apparel", jsonFormData, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      await getApparel();
+    }
+    catch(err){
+      console.log(err);
+    }
+  }
+
+
+
   function handleSubmit(event) {
     event.preventDefault();
     const jsonFormData = JSON.stringify(formData);
-    console.log(jsonFormData);
-    console.log(formData);
+
+    postApparel(jsonFormData);
+    
     setFormData({
       name: '',
       description: '',
