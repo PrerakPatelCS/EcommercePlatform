@@ -4,6 +4,7 @@ import dev.prerak.ecommerce.cart.Cart;
 import dev.prerak.ecommerce.cart.CartService;
 import dev.prerak.ecommerce.orderHistory.OrderHistory;
 import dev.prerak.ecommerce.orderHistory.OrderHistoryService;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -32,10 +33,27 @@ public class UserService {
 
 
     public User createUser(String username, String password, String role){
+        // Username Taken?
+        if(userRepository.findUserByusername(username).orElse(null) != null){
+            return null;
+        }
+        String encrypt = DigestUtils.sha256Hex(password);
         Cart cart = cartService.createCart();
         OrderHistory orderHistory = orderHistoryService.createOrderHistory();
-        User user = userRepository.insert(new User(username, password, role, cart, orderHistory));
+        User user = userRepository.insert(new User(username, encrypt, role, cart, orderHistory));
 
+        return user;
+    }
+
+    public User login(String username, String password){
+        User user = userRepository.findUserByusername(username).orElse(null);
+        if(user == null){
+            return null;
+        }
+        String encrypt = DigestUtils.sha256Hex(password);
+        if(!user.getPassword().equals(encrypt)){
+            return null;
+        }
         return user;
     }
 }

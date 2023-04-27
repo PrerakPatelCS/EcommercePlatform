@@ -31,4 +31,9 @@ public class UserController {
         return new ResponseEntity<User>(userService.createUser(payload.get("username"), payload.get("password"),
         payload.get("role")), HttpStatus.CREATED);
     }
+
+    @GetMapping("/login/{username}/{password}")
+    public ResponseEntity<User> login(@PathVariable String username, @PathVariable String password){
+        return new ResponseEntity<User>(userService.login(username, password), HttpStatus.OK);
+    }
 }
