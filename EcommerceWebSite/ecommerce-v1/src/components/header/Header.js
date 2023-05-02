@@ -7,14 +7,19 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
 
-const Header = () => {
+const Header = ({user}) => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
             <Navbar.Brand as={NavLink} to="/" style={{"color":'white'}}>
                 <FontAwesomeIcon icon = {faTags} /> Shop
             </Navbar.Brand>
+            <NavLink className="nav-link" to='/form'>
+              {user ? user.username : "Loading..."}
+            </NavLink>
+
             <Button as={NavLink} to="/form" variant="outline-info" className="me-2 me-auto">Login</Button>
+            <Button as={NavLink} to="/devlog" variant="outline-info" className="me-2">DevLogs</Button>
             <Navbar.Brand as={NavLink} to="/cart" style={{"color":'white'}}>
                 <FontAwesomeIcon icon = {faShoppingCart} /> Cart
             </Navbar.Brand>

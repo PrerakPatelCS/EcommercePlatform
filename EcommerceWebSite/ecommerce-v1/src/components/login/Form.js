@@ -3,16 +3,17 @@ import Login from "./Login";
 import Register from "./Register";
 import './Form.css';
 
-const Form = () => {
+const Form = ({ user , setUser} ) => {
     const [currentForm, setCurrentForm] = useState("Login");
 
     const toggleForm = (formName) => {
         setCurrentForm(formName);
     }
+
     return (
         <div>
             {
-            currentForm == "Login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm} />
+            currentForm == "Login" ? <Login onFormSwitch={toggleForm} user={user} setUser={setUser} /> : <Register onFormSwitch={toggleForm} />
             }
         </div>
     )
