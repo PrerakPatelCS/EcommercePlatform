@@ -6,9 +6,9 @@
     text-align: center;
     border: 1px solid white;
     border-radius: 10px;
-    margin: 100px;
-    height: calc(100vh - 56px - 200px);
-    padding: 5rem;
+    height: 80vh;
+    margin: 5%;
+    padding: 2.5rem;
 }
 
 

@@ -1,0 +1,14 @@
+.devlog-items-container{
+    display: grid;
+    gap: 1rem;
+}
+
+.devlog-cards{
+    overflow:hidden;
+    box-shadow:0 2px 20px lightgray;
+    background-color: rgb(84, 122, 192) !important;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

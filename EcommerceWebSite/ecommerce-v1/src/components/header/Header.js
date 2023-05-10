@@ -15,7 +15,7 @@ const Header = ({user}) => {
                 <FontAwesomeIcon icon = {faTags} /> Shop
             </Navbar.Brand>
             <NavLink className="nav-link" to='/form'>
-              {user ? user.username : "Loading..."}
+              {user ? 'Welcome ' + user.username + '!' : "Loading..."}
             </NavLink>
 
             <Button as={NavLink} to="/form" variant="outline-info" className="me-2 me-auto">Login</Button>

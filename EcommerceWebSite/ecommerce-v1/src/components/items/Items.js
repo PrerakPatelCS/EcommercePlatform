@@ -36,13 +36,13 @@ const Items = ({apparel, user, getUser}) => {
         apparel && apparel.length > 0
         ? apparel.map((apparel) =>{
             return (
-                <Card>
+                <Card className='item-cards'>
                     <Card.Body>
                         <img className='card-img-top' src={apparel.imageUrl} />
                         <h2 className='card-title'>{apparel.name}</h2>
                         <h6 className='card-description'>{apparel.description}</h6>
                         <p className='card-text'><strong>Price = ${apparel.price}</strong></p>
-                        <DropdownButton title='Add to Cart'>
+                        <DropdownButton className='item-card-dropdown-btn' title='Add to Cart'>
                             {[1, 2, 3, 4, 5, 6].map(quantity => (
                                 <Dropdown.Item key={quantity} onClick={() => addToCart(apparel, quantity)}>
                                 {quantity}
