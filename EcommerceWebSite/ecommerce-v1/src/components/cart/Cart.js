@@ -21,10 +21,8 @@ const Cart = ({user, getUser}) => {
   const removeFromCart = async (item) => {
 
     try{
-      const response = "api/apparelQuantity/delete/" + user.username +"/" + item.id;
-
-      console.log(item.id);
-
+      const response = await api.delete("api/apparelQuantity/delete/" + user.username +"/" + item.hexStringId);
+      await getUser(user.username);
 
       console.log(response);
     }

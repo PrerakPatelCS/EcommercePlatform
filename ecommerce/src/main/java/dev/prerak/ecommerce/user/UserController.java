@@ -36,4 +36,9 @@ public class UserController {
     public ResponseEntity<User> login(@PathVariable String username, @PathVariable String password){
         return new ResponseEntity<User>(userService.login(username, password), HttpStatus.OK);
     }
+
+    @GetMapping("/session")
+    public ResponseEntity<User> createSession(){
+        return new ResponseEntity<User>(userService.createSession(), HttpStatus.CREATED);
+    }
 }

@@ -7,6 +7,7 @@ import dev.prerak.ecommerce.orderHistory.OrderHistoryService;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,6 +23,9 @@ public class UserService {
 
     @Autowired
     private OrderHistoryService orderHistoryService;
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
 
     public List<User> getUsers(){
         return userRepository.findAll();
@@ -54,6 +58,16 @@ public class UserService {
         if(!user.getPassword().equals(encrypt)){
             return null;
         }
+        return user;
+    }
+
+    public User createSession(){
+        Cart cart = cartService.createCart();
+        OrderHistory orderHistory = orderHistoryService.createOrderHistory();
+        User user = userRepository.insert(new User("","","guest",cart, orderHistory));
+        user.setUsername(user.getId().toHexString());
+        mongoTemplate.save(user);
+
         return user;
     }
 }

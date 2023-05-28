@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { PacmanLoader } from 'react-spinners';
 import api from '../../api/axiosConfig';
+import { Card } from 'react-bootstrap';
+import './Devlog.css';
 
 
 
@@ -36,8 +38,7 @@ const Devlog = ({devlog, getDevlog, user}) => {
     }
 
   return (
-    <div>
-        
+    <div className='devlog-items-container'>
         
         {user && user.role === 'admin' && (
             <form onSubmit={handleSubmit}>
@@ -50,13 +51,15 @@ const Devlog = ({devlog, getDevlog, user}) => {
         {
         devlog && devlog.length > 0 
         ? devlog.map((devlogItem) =>{
-            console.log(devlog.map((devlogItem) => devlogItem.id));
             return(
-                <div key={devlogItem.id}>
-                    <h6>{devlogItem.localDateTime}</h6>
-                    <h3>{devlogItem.log}</h3>
-                </div>
+                <Card className='devlog-cards' key={devlogItem.id}>
+                    <Card.Body>
+                        <h6 className='card-title'><strong>{devlogItem.localDateTime}</strong></h6>
+                        <h3 className='card-description'><strong>{devlogItem.log}</strong></h3>
+                    </Card.Body>
+                </Card>
             );
+            
         })
         :(
             <div className='loading'>

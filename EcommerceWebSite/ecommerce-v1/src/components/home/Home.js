@@ -2,6 +2,7 @@ import Hero from "../hero/Hero"
 import Items from "../items/Items"
 import { Container } from "react-bootstrap"
 
+
 const Home = ({apparel, user, getUser}) => {
   return (
     <Container-fluid>

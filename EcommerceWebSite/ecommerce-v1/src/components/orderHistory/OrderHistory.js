@@ -36,9 +36,13 @@ const OrderHistory = ({user}) => {
                             <ListGroup.Item className='list-horizontal-item'>{cartItem.apparel.name}</ListGroup.Item>
                             <ListGroup.Item className='list-horizontal-item'>{cartItem.apparel.category}</ListGroup.Item>
                             <ListGroup.Item className='list-horizontal-item'>Price = ${cartItem.apparel.price}</ListGroup.Item>
+                          </ListGroup>
+                          <ListGroup horizontal className='list-horizontal'>
+                            <ListGroup.Item className='list-horizontal-item'>{cartItem.apparel.description}</ListGroup.Item>
                             <ListGroup.Item className='list-horizontal-item'>{cartItem.quantity}</ListGroup.Item>
                           </ListGroup>
                         </ListGroup.Item>
+                        
                       );
                     })
                   }

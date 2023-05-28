@@ -1,4 +1,5 @@
 .apparel-items-container{
+    padding: 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
     gap: 2rem;
@@ -6,10 +7,10 @@
 }
 
 
-.card{
+.item-cards{
     overflow:hidden;
     box-shadow:0 2px 20px lightgray;
-    background-color: rgb(52, 84, 143) !important;
+    background-color: rgb(84, 122, 192) !important;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -40,24 +41,24 @@
 }
 
 
-.card-btn{
+.item-card-dropdown-btn{
     font-family: inherit;
     font-weight: bold !important;
     font-size: 1rem;
-    border: 2px solid blue !important;
+    border: 2px solid rgb(0, 255, 255) !important;
     background: transparent !important;
-    color:blue !important;
+    width:fit-content;
     border-radius: 5px;
     transition: background 200ms ease-in, color 200ms ease-in;
 }
 
-.card:hover{
+.item-cards:hover{
     transform:scale(1.02);
 }
 
-.card:hover .card-btn{
-    background:blue !important;
-    color: white !important;
+.item-cards:hover .item-card-dropdown-btn{
+    transform:scale(1.05);
+    border: 2px solid rgb(255, 0, 0) !important;
 }
 
 .loading{

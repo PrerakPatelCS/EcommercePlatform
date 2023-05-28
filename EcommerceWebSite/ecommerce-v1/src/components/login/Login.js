@@ -1,6 +1,8 @@
 import './Register'
 import React, { useState } from 'react';
 import api from '../../api/axiosConfig';
+import  secureLocalStorage  from  "react-secure-storage";
+
 
 
 
@@ -8,6 +10,11 @@ const Login = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
+    const [isChecked, setIsChecked] = useState(false);
+
+    const handleCheckboxChange = () => {
+      setIsChecked(!isChecked);
+    };
 
 
     const handleSubmit = async (e) => {
@@ -22,6 +29,9 @@ const Login = (props) => {
         console.log(credentials);
         if(credentials.data !== ''){
             props.setUser(credentials.data);
+            if(isChecked){
+              secureLocalStorage.setItem("user", username);
+            }
             alert("Logined in");
             setUsername('');
             setPassword('');
@@ -30,6 +40,7 @@ const Login = (props) => {
             alert("Wrong Username or Password");
         }
       
+        
       setLoading(false);
 
     }
@@ -61,13 +72,23 @@ const Login = (props) => {
               />
               <label form="password">Password</label>
               <input 
-              value={password} 
-              type='password' 
-              placeholder="********" 
-              id='password' 
-              name='password'
-              onChange={(e) => setPassword(e.target.value)}
-            />
+                value={password} 
+                type='password' 
+                placeholder="********" 
+                id='password' 
+                name='password'
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <label>
+                <input 
+                  type='checkbox'
+                  checked={isChecked}
+                  onChange={handleCheckboxChange}
+                  name ='rememberUser'
+                />
+                Remember Me
+              </label>
+            
               <button type='submit'>Log In</button>
           </form>
           <button className='link-btn' disabled={loading} onClick={() => props.onFormSwitch('Register')}>Don't Have an Account? Register Here!</button>
