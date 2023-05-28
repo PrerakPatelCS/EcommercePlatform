@@ -50,6 +50,8 @@ public class ApparelQuantityService {
     public ApparelQuantity createApparelQuantity(String apparelName, int quantity, String username) {
         Apparel apparel = apparelService.getApparel(apparelName).orElse(null);
         ApparelQuantity apparelQuantity = apparelQuantityRepository.insert(new ApparelQuantity(apparel, quantity));
+        apparelQuantity.setHexStringId(apparelQuantity.getId().toHexString());
+        mongoTemplate.save(apparelQuantity);
 
         double subtotal = Double.parseDouble(df.format(apparel.getPrice() * quantity));
         double total = Double.parseDouble(df.format(subtotal * TAX));

@@ -16,6 +16,7 @@ import org.springframework.data.mongodb.core.mapping.DocumentReference;
 public class ApparelQuantity {
     @Id
     private ObjectId id;
+    private String hexStringId;
     @DocumentReference
     private Apparel apparel;
     private int quantity;

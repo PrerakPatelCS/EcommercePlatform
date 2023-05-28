@@ -10,6 +10,10 @@ import OrderHistory from './components/orderHistory/OrderHistory';
 import Dev from './components/dev/Dev';
 import Form from './components/login/Form';
 import Devlog from './components/devlog/Devlog';
+import  secureLocalStorage  from  "react-secure-storage";
+
+
+
 
 function App() {
   const [apparel, setApparel] = useState([]);
@@ -50,7 +54,29 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    getUser('guest');
+    const addSession = async () =>{
+      try{
+        const response = await api.get("api/user/session");
+        secureLocalStorage.setItem("session", response.data.username);
+      }
+      catch(err){
+        console.log(err);
+      }
+    }
+
+    let initialUser;
+
+    if(secureLocalStorage.getItem("session") === null){
+      addSession();
+    }
+    if(secureLocalStorage.getItem("user") !== null){
+      initialUser = secureLocalStorage.getItem("user");
+    }
+    else{
+      initialUser = secureLocalStorage.getItem("session");
+    }
+
+    getUser(initialUser);
   }, []);
 
 
@@ -69,7 +95,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header user={user}/>
+      <Header user={user} getUser={getUser}/>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home apparel={apparel} user={user} getUser={getUser} />} />
